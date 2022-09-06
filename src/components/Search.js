@@ -1,9 +1,15 @@
 import React from "react"
 
-function Search() {
+function Search({
+    filterPlanets
+}) {
+    function handleChange(e) {
+        filterPlanets(e.target.value)
+    }
+
     return (
         <div>
-            <input type="text" onChange={() => console.log("Searching...")} placeholder="Search..."/>
+            <input type="text" onChange={handleChange} placeholder="Search..."/>
         </div>
     );
 }
