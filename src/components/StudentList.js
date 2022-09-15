@@ -1,8 +1,8 @@
 import React from "react"
-import Planet from "./Planet"
+import Student from "./Student"
 
-function PlanetList({
-    planets
+function StudentList({
+    students
 }) {
     return(
         <table>
@@ -13,12 +13,12 @@ function PlanetList({
                     <th>Last Name</th>
                     <th>Friends</th>
                 </tr>
-                {planets.map((planet)=>{
-                    return <Planet key={planet.name} planet={planet} />
+                {students.map((student)=>{
+                    return <Student key={student.name} student={student} />
                 })}
             </tbody>
         </table>
     );
 }
 
-export default PlanetList;
+export default StudentList;

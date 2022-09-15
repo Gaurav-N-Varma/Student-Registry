@@ -1,24 +1,24 @@
 import React, { Fragment, useEffect, useState } from "react"
 import Search from "./Search"
-import NewPlanetForm from "./NewStudentForm"
-import FriendList from "./FriendList"
+import NewStudentForm from "./NewStudentForm"
+import StudentList from "./StudentList"
 
 function Registry() {
-    const [friends, setFriends] = useState([])
+    const [students, setStudents] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(()=>{
         fetch('http://localhost:8085/students')
         .then(r => r.json())
-        .then(data => setFriends(data))
+        .then(data => setStudents(data))
     }, [])
     
-    function addPlanet(e) {
-        setFriends(old => [...old, {
+    function addStudent(e) {
+        setStudents(old => [...old, {
             "name": e.target.name.value,
-            "climate": e.target.climate.value,
-            "terrain": e.target.terrain.value,
-            "population": e.target.population.value
+            "middle": e.target.middle.value,
+            "last": e.target.last.value,
+            "number": e.target.number.value
         }])
         
         fetch('http://localhost:8085/students', {
@@ -29,9 +29,9 @@ function Registry() {
            },
            body: JSON.stringify({
             "name": e.target.name.value,
-            "climate": e.target.climate.value,
-            "terrain": e.target.terrain.value,
-            "population": e.target.population.value
+            "middle": e.target.middle.value,
+            "last": e.target.last.value,
+            "number": e.target.number.value
         }),
         })
            .then(r => r.json())
@@ -39,21 +39,21 @@ function Registry() {
            .catch(e => console.log(e))
     }
 
-    function filterPlanets(text) {
+    function filterStudents(text) {
         setSearchTerm(text)
     }
 
-    const friendsToDisplay = friends.filter((planet) => {
-        return planet.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const studentsToDisplay = students.filter((student) => {
+        return student.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
     
     return(
         <div className="registry">
             <h2>Overview</h2>
-            <Search filterPlanets={filterPlanets}/>
+            <Search filterStudents={filterStudents}/>
             <div className="content">
-                <FriendList planets={friendsToDisplay} />
-                <NewPlanetForm addPlanet={addPlanet}/>
+                <StudentList students={studentsToDisplay} />
+                <NewStudentForm addStudent={addStudent}/>
             </div>
         </div>
     )

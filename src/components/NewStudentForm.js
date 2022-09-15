@@ -1,23 +1,23 @@
 import React from "react"
 
-function NewPlanetForm({
-    addPlanet
+function NewStudentForm({
+    addStudent
 }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        addPlanet(e)
+        addStudent(e)
     }
     
     return(
         <form onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="First Name" />
-            <input type="text" name="climate" placeholder="Middle Name" />
-            <input type="text" name="terrain" placeholder="Last Name"/>
-            <input type="text" name="population" placeholder="Friends" />
+            <input type="text" name="middle" placeholder="Middle Name" />
+            <input type="text" name="last" placeholder="Last Name"/>
+            <input type="text" name="number" placeholder="Friends" />
             <input type="submit" value="Add"/>
         </form>
     );
 }
 
-export default NewPlanetForm;
+export default NewStudentForm;

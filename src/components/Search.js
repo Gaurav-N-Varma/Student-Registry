@@ -1,8 +1,8 @@
 import React from "react";
 
-function Search({ filterPlanets }) {
+function Search({ filterStudents }) {
   function handleChange(e) {
-    filterPlanets(e.target.value);
+    filterStudents(e.target.value);
   }
 
   return (
