@@ -1,5 +1,4 @@
 import React from "react"
-import {v4 as uuid} from "uuid"
 
 function NewPlanetForm({
     addPlanet
@@ -12,10 +11,10 @@ function NewPlanetForm({
     
     return(
         <form onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Name" />
-            <input type="text" name="climate" placeholder="Climate" />
-            <input type="text" name="terrain" placeholder="Terrain"/>
-            <input type="text" name="population" placeholder="Population" />
+            <input type="text" name="name" placeholder="First Name" />
+            <input type="text" name="climate" placeholder="Middle Name" />
+            <input type="text" name="terrain" placeholder="Last Name"/>
+            <input type="text" name="population" placeholder="Friends" />
             <input type="submit" value="Add"/>
         </form>
     );

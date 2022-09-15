@@ -1,27 +1,27 @@
 import React, { Fragment, useEffect, useState } from "react"
 import Search from "./Search"
-import NewPlanetForm from "./NewPlanetForm"
-import PlanetList from "./PlanetList"
+import NewPlanetForm from "./NewStudentForm"
+import FriendList from "./FriendList"
 
 function Registry() {
-    const [planets, setPlanets] = useState([])
+    const [friends, setFriends] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(()=>{
-        fetch('http://localhost:8085/planets')
+        fetch('http://localhost:8085/students')
         .then(r => r.json())
-        .then(data => setPlanets(data))
+        .then(data => setFriends(data))
     }, [])
     
     function addPlanet(e) {
-        setPlanets(old => [...old, {
+        setFriends(old => [...old, {
             "name": e.target.name.value,
             "climate": e.target.climate.value,
             "terrain": e.target.terrain.value,
             "population": e.target.population.value
         }])
         
-        fetch('http://localhost:8085/planets', {
+        fetch('http://localhost:8085/students', {
            method: 'POST',
            headers: {
               'Content-Type': 'application/json',
@@ -43,19 +43,19 @@ function Registry() {
         setSearchTerm(text)
     }
 
-    const planetsToDisplay = planets.filter((planet) => {
+    const friendsToDisplay = friends.filter((planet) => {
         return planet.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
     
     return(
         <div className="registry">
+            <h2>Overview</h2>
             <Search filterPlanets={filterPlanets}/>
             <div className="content">
-                <PlanetList planets={planetsToDisplay} />
+                <FriendList planets={friendsToDisplay} />
                 <NewPlanetForm addPlanet={addPlanet}/>
             </div>
         </div>
     )
 }
-
 export default Registry;

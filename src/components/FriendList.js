@@ -8,10 +8,10 @@ function PlanetList({
         <table>
             <tbody>
                 <tr>
-                    <th>Name</th>
-                    <th>Climate</th>
-                    <th>Terrain</th>
-                    <th>Population</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Friends</th>
                 </tr>
                 {planets.map((planet)=>{
                     return <Planet key={planet.name} planet={planet} />

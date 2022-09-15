@@ -1,19 +1,15 @@
-@font-face {
-    font-family: jedi;
-    src: url("../public/assets/Starjout.ttf");
-}
 
 html {
     margin: 0;
     padding: 0;
-    font-family: jedi;
-    background-color: black;
-    color: #fbea52;
+    font-family: verdana;
+    background-color: lightblue;
+    color: black;
     text-align: center;
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 4em;
 }
 
 th {
@@ -22,7 +18,7 @@ th {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
-    background-color: black;
+    background-color: white;
 }
 
 td {
@@ -35,7 +31,7 @@ input[type=text] {
     border: 1px dotted white;
     background: none;
     padding: .5em;
-    color: white;
+    color: black;
     border-radius: 4px;
 }
 
@@ -52,7 +48,7 @@ form {
     display: flex;
     flex-direction: column;
     width:30%;
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     align-self: flex-start
